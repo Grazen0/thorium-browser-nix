@@ -3,8 +3,8 @@
 pkgs.stdenv.mkDerivation rec {
   pname = "thorium-browser";
   version = "126.0.6478.231";
-# https://github.com/Alex313031/thorium/releases/download/M124.0.6367.218/thorium-browser_124.0.6367.218_AVX.deb
-# https://github.com/Alex313031/thorium/releases/download/M126.0.6478.231/thorium-browser_126.0.6478.231_AVX.deb
+  # https://github.com/Alex313031/thorium/releases/download/M124.0.6367.218/thorium-browser_124.0.6367.218_AVX.deb
+  # https://github.com/Alex313031/thorium/releases/download/M126.0.6478.231/thorium-browser_126.0.6478.231_AVX.deb
   src = pkgs.fetchurl {
     url = "https://github.com/Alex313031/thorium/releases/download/M${version}/thorium-browser_${version}_AVX.deb";
     hash = "sha256-qiLFjMpauK3DdyabsioWQMpvNJjsjeJVymgcLeKS7D0=";
@@ -13,7 +13,7 @@ pkgs.stdenv.mkDerivation rec {
   nativeBuildInputs = with pkgs; [
     autoPatchelfHook
     dpkg
-    wrapGAppsHook
+    wrapGAppsHook3
     qt6.wrapQtAppsHook
   ];
 
@@ -43,6 +43,7 @@ pkgs.stdenv.mkDerivation rec {
     libpulseaudio
     libu2f-host
     libva
+    libva-vdpau-driver
     libxkbcommon
     mesa
     nspr
@@ -54,7 +55,6 @@ pkgs.stdenv.mkDerivation rec {
     speechd
     udev
     unrar
-    vaapiVdpau
     vulkan-loader
     wayland
     wget
